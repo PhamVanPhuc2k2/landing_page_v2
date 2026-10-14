@@ -6,7 +6,7 @@
  */
 window.SITE = {
     "kicker": "Lưu trữ truyền thông",
-    "title": "Diễn đàn\nLắng nghe nông dân nói",
+    "title": "Diễn đàn\nLắng nghe nông dân nói",
     "desc": "Tổng hợp các Diễn đàn đối thoại giữa Trung ương Hội Nông dân Việt Nam và lãnh đạo các Bộ, ngành giai đoạn 2024 – 2026: nơi nông dân, hợp tác xã, doanh nghiệp trực tiếp nêu kiến nghị và được giải đáp tại chỗ."
 };
 
