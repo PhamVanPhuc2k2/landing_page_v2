@@ -85,6 +85,14 @@
         white-space: pre;
         font-size: clamp(1rem, 6vw, 1.75rem);
     }
+    // Tiêu đề "Dấu ấn các Diễn đàn / qua từng năm": đúng 2 dòng, chữ co theo bề ngang
+    .heading-primary--2line {
+        white-space: nowrap;
+        font-size: clamp(1.125rem, 7.4vw, 2rem);
+    }
+    .br-mobile {
+        display: inline;
+    }
     // Logo 1 dòng: chữ co theo bề ngang màn hình
     .header__brand {
         font-size: clamp(0.6875rem, 3.2vw, 1rem);

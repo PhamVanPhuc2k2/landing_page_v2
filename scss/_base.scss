@@ -1499,3 +1499,7 @@ a:focus {
         height: 100%;
     }
 }
+// Chỉ xuống dòng trên mobile (bật trong _responsive.scss)
+.br-mobile {
+    display: none;
+}
