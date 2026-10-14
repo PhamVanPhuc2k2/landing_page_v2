@@ -26,8 +26,8 @@ window.EVENTS = [
         "summary": "Kỳ thứ 4 của Diễn đàn giữa Chủ tịch Hội Nông dân Việt Nam và Bộ trưởng Bộ Nông nghiệp và Môi trường. Hàng nghìn câu hỏi, đề xuất của nông dân, hợp tác xã, doanh nghiệp đã gửi về Diễn đàn — từ liên kết, xúc tiến thương mại, khơi thông thị trường xuất khẩu đến chuyển đổi số và an toàn thực phẩm.",
         "stats": [
           {
-            "value": 13,
-            "suffix": "",
+            "value": 100,
+            "suffix": "+",
             "label": "Bài báo tư liệu"
           }
         ],
@@ -166,8 +166,8 @@ window.EVENTS = [
         "summary": "Lần đầu tiên Bộ Công an và Trung ương Hội Nông dân Việt Nam cùng tổ chức Diễn đàn lắng nghe nông dân nói, diễn ra sáng Chủ nhật 11/10/2026 nhân dịp kỷ niệm Ngày thành lập Hội Nông dân Việt Nam. Diễn đàn hướng tới an ninh, trật tự ở cơ sở sau sáp nhập xã, vai trò công an xã “gần dân, sát dân” và cảnh báo lừa đảo ở nông thôn.",
         "stats": [
           {
-            "value": 41,
-            "suffix": "",
+            "value": 100,
+            "suffix": "+",
             "label": "Bài báo tư liệu"
           }
         ],
@@ -564,8 +564,8 @@ window.EVENTS = [
         "summary": "Trung ương Hội Nông dân Việt Nam phối hợp với Bộ Công Thương tổ chức Diễn đàn Nông dân Quốc gia lần thứ X với chủ đề “Kết nối thị trường – Xây dựng thương hiệu – Thúc đẩy tiêu thụ nông sản, góp phần tăng trưởng kinh tế đất nước 2 con số”, trước thềm chuỗi chương trình Tự hào Nông dân Việt Nam 2025.",
         "stats": [
           {
-            "value": 31,
-            "suffix": "",
+            "value": 100,
+            "suffix": "+",
             "label": "Bài báo tư liệu"
           }
         ],
@@ -865,8 +865,8 @@ window.EVENTS = [
         "summary": "Diễn đàn với chủ đề “Đồng hành cùng nông dân bước vào kỷ nguyên mới” quy tụ khoảng 300 đại biểu. Hàng trăm câu hỏi của nông dân, hợp tác xã, doanh nghiệp, nhà khoa học tập trung vào 4 nhóm “điểm nghẽn” — từ đất đai, công nghệ đến nhân lực — và được lãnh đạo Bộ, cục, vụ trực tiếp giải đáp.",
         "stats": [
           {
-            "value": 54,
-            "suffix": "",
+            "value": 100,
+            "suffix": "+",
             "label": "Bài báo tư liệu"
           },
           {
@@ -1389,8 +1389,8 @@ window.EVENTS = [
         "summary": "Trung ương Hội Nông dân Việt Nam phối hợp Bộ Nông nghiệp và Phát triển nông thôn tổ chức Diễn đàn Nông dân Quốc gia lần thứ IX với chủ đề “Chủ tịch Hội Nông dân Việt Nam – Bộ trưởng Bộ NN&PTNT lắng nghe nông dân nói”. Nhiều kiến nghị của nông dân xuất sắc, hợp tác xã được hai đồng chủ trì trả lời trực tiếp.",
         "stats": [
           {
-            "value": 14,
-            "suffix": "",
+            "value": 100,
+            "suffix": "+",
             "label": "Bài báo tư liệu"
           }
         ],
@@ -1537,8 +1537,8 @@ window.EVENTS = [
         "summary": "Diễn đàn với chủ đề “Khơi thông nguồn lực đất đai, hướng tới mục tiêu NetZero, bảo vệ môi trường nông thôn”. Nhiều kiến nghị về Luật Đất đai 2024 của nông dân, hợp tác xã, chuyên gia, nhà khoa học đã được giải đáp, tháo gỡ tại chỗ.",
         "stats": [
           {
-            "value": 35,
-            "suffix": "",
+            "value": 100,
+            "suffix": "+",
             "label": "Bài báo tư liệu"
           }
         ],
