@@ -3669,6 +3669,17 @@ html.intro .curtain {
   .hero__title {
     font-size: 1.75rem;
   }
+  .header__logo {
+    flex: 1;
+    min-width: 0;
+    margin-right: 12px;
+  }
+  .header__logo > span {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: clamp(0.6875rem, 3.2vw, 1rem);
+  }
   .hero__eyebrow {
     font-size: 0.75rem;
     letter-spacing: 0.1em;
