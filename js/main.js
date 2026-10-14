@@ -1,0 +1,442 @@
+(function () {
+    // Số bài hiện mỗi lần (ban đầu và mỗi lần bấm "Xem thêm"), đồng nhất các năm
+    var PAGE_SIZE = 6;
+    var PAGE_SIZE_MOBILE = 2;
+    var mobileQuery = window.matchMedia("(max-width: 767px)"); // cùng mốc $bp-sm trong SCSS
+
+    function pageSize() {
+        return mobileQuery.matches ? PAGE_SIZE_MOBILE : PAGE_SIZE;
+    }
+    var site = window.SITE || {};
+    var events = window.EVENTS || [];
+
+    function esc(str) {
+        return String(str == null ? "" : str).replace(/[&<>"']/g, function (c) {
+            return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+        });
+    }
+
+    function formatNumber(n) {
+        return n.toLocaleString("vi-VN");
+    }
+
+    /* ---------------- Render ---------------- */
+
+    function renderStats(stats) {
+        return stats.map(function (s) {
+            return '<div class="stat stat--sm">' +
+                '<div class="stat__value" data-count="' + s.value + '" data-suffix="' + esc(s.suffix) + '">0</div>' +
+                '<div class="stat__label">' + esc(s.label) + '</div>' +
+            '</div>';
+        }).join("");
+    }
+
+    function renderThumb(img) {
+        if (img) return '<img src="' + esc(img) + '" alt="" loading="lazy">';
+        return '<span class="article-card__placeholder">Dân Việt</span>';
+    }
+
+    function renderArticle(a) {
+        return '<a class="card article-card reveal-card" href="' + esc(a.url) + '" target="_blank" rel="noopener">' +
+            '<div class="article-card__thumb">' + renderThumb(a.img) + '</div>' +
+            '<div class="article-card__body">' +
+                '<div class="article-card__source"><strong>Dân Việt</strong></div>' +
+                '<h4 class="article-card__title">' + esc(a.title) + '</h4>' +
+                (a.sapo ? '<p class="article-card__sapo">' + esc(a.sapo) + '</p>' : '') +
+                '<span class="article-card__link">Đọc trên Dân Việt →</span>' +
+            '</div>' +
+        '</a>';
+    }
+
+    function renderProgram(pr, year, index, total) {
+        var pending = pr.articles.length < pr.articleCount
+            ? '<p class="press__note">Đang cập nhật — hiện có ' + pr.articles.length + '/' + pr.articleCount + ' bài viết.</p>'
+            : "";
+
+        return '<section class="program' + (pr.special ? ' program--special' : '') + '" id="program-' + esc(pr.id) + '">' +
+            (total > 1 ? '<div class="program__index reveal"><span><b class="program__year">' + year + ' · </b>Diễn đàn ' + (index + 1) + '<small>/' + total + '</small></span></div>' : '') +
+            '<div class="event__head">' +
+                '<div class="event__cover ratio-16x9 reveal reveal-wipe"><span class="event__scan"></span><img src="' + esc(pr.cover) + '" alt="' + esc(pr.title) + '" loading="lazy"></div>' +
+                '<div class="reveal reveal--right">' +
+                    '<div class="event__meta">' +
+                        '<span class="tag tag--red">' + esc(pr.badge || "Năm " + year) + '</span>' +
+                        (pr.date ? '<span class="tag">' + esc(pr.date) + '</span>' : '') +
+                        (pr.location ? '<span class="tag">' + esc(pr.location) + '</span>' : '') +
+                    '</div>' +
+                    '<p class="event__kicker">' + esc(pr.kicker) + '</p>' +
+                    '<h3 class="event__title">' + esc(pr.title) + '</h3>' +
+                    '<p class="event__summary">' + esc(pr.summary) + '</p>' +
+                    '<div class="event__stats">' + renderStats(pr.stats) + '</div>' +
+                    (pr.link ? '<a class="btn-outline event__link" href="' + esc(pr.link) + '" target="_blank" rel="noopener">' + esc(pr.linkLabel || "Xem chuyên trang") + ' →</a>' : '') +
+                '</div>' +
+            '</div>' +
+            '<div class="press">' +
+                '<div class="press__head reveal">' +
+                    '<h4 class="press__title">Bài báo tư liệu</h4>' +
+                '</div>' +
+                pending +
+                '<div class="press__grid"></div>' +
+                '<div class="press__more"><button class="btn-outline" type="button">Xem thêm</button></div>' +
+            '</div>' +
+        '</section>';
+    }
+
+    // Mỗi năm là 1 mốc trên timeline, gồm nhiều chương trình (diễn đàn)
+    function renderEvent(ev) {
+        return '<article class="event' + (ev.special ? ' event--special' : '') + '" id="event-' + ev.year + '" data-year="' + ev.year + '">' +
+            '<div class="event__year">' + ev.year + '</div>' +
+            '<span class="event__comet" aria-hidden="true"></span>' +
+            ev.programs.map(function (pr, i) { return renderProgram(pr, ev.year, i, ev.programs.length); }).join("") +
+        '</article>';
+    }
+
+    /* ---------------- Hiện dần khi cuộn tới ---------------- */
+
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function show(el) {
+        // Thẻ trong lưới hiện so le theo cột
+        if (el.classList.contains("reveal-card") && el.parentNode) {
+            var index = Array.prototype.indexOf.call(el.parentNode.children, el);
+            el.style.setProperty("--delay", (index % 3) * 0.12 + "s");
+            // Bỏ độ trễ sau khi hiện xong để hover phản hồi ngay
+            clearTimeout(el._delayTimer);
+            el._delayTimer = setTimeout(function () { el.style.removeProperty("--delay"); }, 1000);
+        }
+        el.classList.add("is-visible");
+        el.querySelectorAll("[data-count]").forEach(countUp);
+    }
+
+    function hide(el) {
+        el.classList.remove("is-visible");
+        el.querySelectorAll(".is-done").forEach(function (n) { n.classList.remove("is-done"); });
+    }
+
+    // Chạy lại hiệu ứng xuất hiện ngay lập tức (dùng khi người dùng chọn lại)
+    function replay(el) {
+        hide(el);
+        void el.offsetWidth; // ép trình duyệt vẽ lại trạng thái ẩn
+        show(el);
+    }
+
+    // Lặp lại: rời màn hình thì ẩn, quay lại thì hiện lại từ đầu
+    var revealIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            var el = entry.target;
+            if (entry.isIntersecting) {
+                if (!el.classList.contains("is-visible")) show(el);
+            } else if (el.classList.contains("is-visible") && !el.contains(document.activeElement)) {
+                hide(el);
+            }
+        });
+    }, { threshold: 0, rootMargin: "0px 0px -8% 0px" });
+
+    function observeReveal(root) {
+        root.querySelectorAll(".reveal, .reveal-card").forEach(function (el) {
+            revealIO.observe(el);
+        });
+    }
+
+    // Nút nảy nhẹ khi bấm
+    function press(btn) {
+        btn.classList.remove("is-pressed");
+        void btn.offsetWidth;
+        btn.classList.add("is-pressed");
+    }
+
+    /* ---------------- Lấy bài trực tiếp từ API CMS (năm có ev.api) ---------------- */
+
+    // API Dân Việt: https://danviet.vn/api/chu-de/<id> (trang 1), .../<id>/p<n> (trang n);
+    // 20 bài/trang, đúng thứ tự CMS. Link dạng khác thì phân trang bằng ?page=<n>.
+    function apiPageUrl(apiUrl, n) {
+        if (/\/api\/chu-de\/\d+\/?$/.test(apiUrl)) {
+            return n === 1 ? apiUrl : apiUrl.replace(/\/$/, "") + "/p" + n;
+        }
+        return apiUrl + (apiUrl.indexOf("?") === -1 ? "?" : "&") + "page=" + n;
+    }
+
+    function createApiSource(apiUrl) {
+        var page = 0;
+        var totalPages = null;
+        var source = { total: null, hasMore: function () { return totalPages === null || page < totalPages; } };
+
+        source.fetchNext = function () {
+            var controller = window.AbortController ? new AbortController() : null;
+            var timer = setTimeout(function () { if (controller) controller.abort(); }, 8000);
+            var url = apiPageUrl(apiUrl, page + 1);
+            return fetch(url, controller ? { signal: controller.signal } : {})
+                .then(function (res) {
+                    if (!res.ok) throw new Error("HTTP " + res.status);
+                    return res.json();
+                })
+                .then(function (data) {
+                    clearTimeout(timer);
+                    if (!data || !data.success || !Array.isArray(data.data)) throw new Error("API không hợp lệ");
+                    page += 1;
+                    totalPages = Number(data.total_pages) || page;
+                    source.total = Number(data.total) || null;
+                    return data.data.map(function (a) {
+                        return { id: String(a.id), title: a.title, url: a.link, img: a.image || "", sapo: a.sapo || "", date: "" };
+                    });
+                }, function (err) {
+                    clearTimeout(timer);
+                    throw err;
+                });
+        };
+        return source;
+    }
+
+    /* ---------------- Danh sách bài: đúng thứ tự trong chủ đề CMS + xem thêm ---------------- */
+
+    function setupPress(programEl, ev) {
+        var grid = programEl.querySelector(".press__grid");
+        var moreBtn = programEl.querySelector(".press__more button");
+        var list = ev.articles.slice(); // hiện ngay bản lưu sẵn trong data.js
+        var fallback = ev.articles.slice();
+        var exhausted = false; // API trả trang toàn bài trùng (vd. bị cache) -> thôi gọi, dùng bản lưu sẵn
+        var live = ev.api ? createApiSource(ev.api) : null;
+        var liveReady = false;
+        var shown = 0;
+
+        function total() {
+            return liveReady && live.total && !exhausted ? Math.max(live.total, list.length) : list.length;
+        }
+
+        function updateButton() {
+            moreBtn.parentNode.style.display = shown < total() ? "" : "none";
+            moreBtn.disabled = false;
+            moreBtn.textContent = "Xem thêm";
+        }
+
+        function draw(reset, count) {
+            if (reset) {
+                grid.querySelectorAll(".reveal-card").forEach(function (c) { revealIO.unobserve(c); });
+                grid.innerHTML = "";
+                shown = 0;
+            }
+            var next = list.slice(shown, shown + (count || pageSize()));
+            grid.insertAdjacentHTML("beforeend", next.map(renderArticle).join(""));
+            observeReveal(grid);
+            shown += next.length;
+            updateButton();
+        }
+
+        // Tải thêm trang API cho tới khi đủ bài để hiện
+        function ensure(count) {
+            if (!liveReady || exhausted || list.length >= count || !live.hasMore()) return Promise.resolve();
+            return live.fetchNext().then(function (items) {
+                var seen = {};
+                var added = 0;
+                list.forEach(function (a) { seen[a.id] = true; });
+                items.forEach(function (a) { if (!seen[a.id]) { seen[a.id] = true; list.push(a); added++; } });
+                if (!added) {
+                    exhausted = true;
+                    fallback.forEach(function (a) { if (!seen[a.id]) list.push(a); });
+                }
+                return ensure(count);
+            });
+        }
+
+        moreBtn.addEventListener("click", function () {
+            press(moreBtn);
+            var want = shown + pageSize();
+            if (liveReady && list.length < want && live.hasMore()) {
+                moreBtn.disabled = true;
+                moreBtn.textContent = "Đang tải…";
+            }
+            ensure(want).catch(function (err) {
+                console.warn("Không tải thêm được bài từ API:", err);
+            }).then(function () { draw(false); });
+        });
+
+        draw(true);
+
+        if (!live) return;
+        live.fetchNext().then(function (items) {
+            if (!items.length) return; // chủ đề trống: giữ bản lưu sẵn
+            var samePrefix = items.length >= shown && list.slice(0, shown).every(function (a, i) { return items[i].id === a.id; });
+            list = items;
+            liveReady = true;
+            if (samePrefix) {
+                updateButton(); // bài đang hiện không đổi: không vẽ lại cho khỏi giật
+            } else {
+                var keep = Math.max(shown, pageSize());
+                ensure(keep).catch(function () {}).then(function () { draw(true, keep); });
+            }
+        }).catch(function (err) {
+            console.warn("Không gọi được API, dùng dữ liệu lưu sẵn:", err);
+        });
+    }
+
+    /* ---------------- Đếm số khi cuộn tới ---------------- */
+
+    function countUp(el) {
+        var target = parseFloat(el.getAttribute("data-count")) || 0;
+        var suffix = el.getAttribute("data-suffix") || "";
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduce) {
+            el.textContent = formatNumber(target) + suffix;
+            return;
+        }
+        var start = null;
+        var duration = 1600;
+        var token = el._countToken = (el._countToken || 0) + 1;
+        el.classList.remove("is-done");
+        function step(ts) {
+            if (token !== el._countToken) return;
+            if (!start) start = ts;
+            var p = Math.min((ts - start) / duration, 1);
+            var eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = formatNumber(Math.round(target * eased)) + suffix;
+            if (p < 1) requestAnimationFrame(step);
+            else el.classList.add("is-done");
+        }
+        requestAnimationFrame(step);
+    }
+
+    /* ---------------- Hiệu ứng ---------------- */
+
+    // Chọn năm: cuộn mượt tới sự kiện rồi "bật đèn" cho sự kiện đó
+    function focusEvent(eventEl) {
+        eventEl.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+        if (reduceMotion) return;
+
+        var done = false;
+        function play() {
+            if (done) return;
+            done = true;
+            window.removeEventListener("scrollend", play);
+            eventEl.classList.remove("is-focus");
+            void eventEl.offsetWidth;
+            eventEl.classList.add("is-focus");
+            var special = eventEl.querySelector(".program--special");
+            if (window.FX && special) window.FX.celebrate(special);
+            eventEl.querySelectorAll(".program__index, .event__head .reveal, .press__head").forEach(replay);
+            var cards = eventEl.querySelectorAll(".reveal-card");
+            for (var i = 0; i < Math.min(cards.length, 6); i++) replay(cards[i]);
+            clearTimeout(eventEl._focusTimer);
+            eventEl._focusTimer = setTimeout(function () { eventEl.classList.remove("is-focus"); }, 1800);
+        }
+        // Đợi cuộn xong mới chạy hiệu ứng
+        window.addEventListener("scrollend", play);
+        setTimeout(play, 900);
+    }
+
+    function initYearLinks() {
+        document.addEventListener("click", function (e) {
+            var link = e.target.closest('a[href^="#event-"]');
+            if (!link) return;
+            var target = document.querySelector(link.getAttribute("href"));
+            if (!target) return;
+            e.preventDefault();
+            if (link.classList.contains("year-nav__item")) press(link);
+            history.replaceState(null, "", link.getAttribute("href"));
+            focusEvent(target);
+        });
+    }
+
+    /* ---------------- Khởi tạo ---------------- */
+
+    function setText(selector, text) {
+        var el = document.querySelector(selector);
+        if (el && text) el.textContent = text;
+    }
+
+    function init() {
+        var container = document.getElementById("events-list");
+        var yearNav = document.getElementById("year-nav");
+
+        setText(".hero__eyebrow", site.kicker);
+        setText(".hero__title", site.title);
+        setText(".hero__desc", site.desc);
+
+        container.innerHTML = events.map(renderEvent).join("");
+        yearNav.innerHTML = events.map(function (ev, i) {
+            return '<a class="year-nav__item' + (ev.special ? " year-nav__item--special" : "") + (i === 0 ? " active" : "") +
+                '" href="#event-' + ev.year + '">' + esc(ev.label || ev.year) + '</a>';
+        }).join("");
+
+        events.forEach(function (ev) {
+            ev.programs.forEach(function (pr) {
+                setupPress(document.getElementById("program-" + pr.id), pr);
+            });
+        });
+
+        // Số liệu tổng ở dải stats là số cố định do biên tập cung cấp (xem index.html)
+
+        observeReveal(document);
+        initYearLinks();
+
+        // Đánh dấu năm đang xem
+        var navIo = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+                var year = entry.target.getAttribute("data-year");
+                yearNav.querySelectorAll(".year-nav__item").forEach(function (a) {
+                    var on = a.getAttribute("href") === "#event-" + year;
+                    a.classList.toggle("active", on);
+                    if (on && yearNav.scrollWidth > yearNav.clientWidth) {
+                        yearNav.scrollTo({ left: a.offsetLeft - 16, behavior: "smooth" });
+                    }
+                });
+            });
+        }, { rootMargin: "-45% 0px -50% 0px" });
+        document.querySelectorAll(".event").forEach(function (el) { navIo.observe(el); });
+
+        // Header + nút lên đầu trang
+        var header = document.querySelector(".header");
+        var toTop = document.querySelector(".back-to-top");
+        var progressBar = document.querySelector(".scroll-progress");
+        var heroInner = document.querySelector(".hero__inner");
+        var eventEls = document.querySelectorAll(".event");
+        var ticking = false;
+
+        function onScroll() {
+            ticking = false;
+            var y = window.scrollY;
+            var vh = window.innerHeight;
+            header.classList.toggle("is-scrolled", y > 40);
+            toTop.classList.toggle("is-visible", y > 600);
+
+            var max = document.documentElement.scrollHeight - vh;
+            progressBar.style.transform = "scaleX(" + (max > 0 ? y / max : 0) + ")";
+
+            if (reduceMotion) return;
+
+            // Parallax: nội dung hero trôi chậm và mờ dần
+            if (y < vh) {
+                heroInner.style.transform = "translateY(" + y * 0.35 + "px)";
+                heroInner.style.opacity = Math.max(1 - y / (vh * 0.8), 0);
+            }
+
+            // Trục timeline sáng dần tới giữa màn hình
+            eventEls.forEach(function (el) {
+                var r = el.getBoundingClientRect();
+                var p = (vh * 0.5 - r.top) / r.height;
+                el.style.setProperty("--p", Math.min(Math.max(p, 0), 1));
+            });
+        }
+        window.addEventListener("scroll", function () {
+            if (!ticking) {
+                ticking = true;
+                requestAnimationFrame(onScroll);
+            }
+        }, { passive: true });
+        onScroll();
+
+        // Hiệu ứng trang trí nằm ở effects.js
+        if (window.FX) window.FX.init();
+        toTop.addEventListener("click", function () { window.scrollTo({ top: 0 }); });
+
+        // Menu mobile
+        var nav = document.querySelector(".header__nav");
+        document.querySelector(".header__toggle").addEventListener("click", function () {
+            nav.classList.toggle("is-open");
+        });
+        nav.addEventListener("click", function (e) {
+            if (e.target.tagName === "A") nav.classList.remove("is-open");
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", init);
+})();

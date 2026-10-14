@@ -1,0 +1,166 @@
+{
+  "site": {
+    "kicker": "Lưu trữ truyền thông",
+    "title": "Diễn đàn\nLắng nghe nông dân nói",
+    "desc": "Tổng hợp các Diễn đàn đối thoại giữa Trung ương Hội Nông dân Việt Nam và lãnh đạo các Bộ, ngành giai đoạn 2024 – 2026: nơi nông dân, hợp tác xã, doanh nghiệp trực tiếp nêu kiến nghị và được giải đáp tại chỗ. Báo Nông thôn Ngày nay/Điện tử Dân Việt được giao phối hợp tổ chức."
+  },
+  "years": [
+    {
+      "year": 2026,
+      "label": "2026",
+      "special": true,
+      "programs": [
+        {
+          "id": "3093",
+          "kicker": "Lần thứ 4 • T.Ư Hội Nông dân Việt Nam – Bộ Nông nghiệp và Môi trường",
+          "title": "Diễn đàn Chủ tịch Hội Nông dân Việt Nam – Bộ trưởng Bộ Nông nghiệp và Môi trường Lắng nghe nông dân nói năm 2026",
+          "date": "Sắp diễn ra",
+          "location": "",
+          "cover": "https://t.ex-cdn.com/danviet.vn/800w/files/channel/2026/07/30/dien-dan-chu-tich-hoi-nong-dan-viet-nam--bo-truong-bo-nong-nghiep-va-moi-truong-lang-nghe-nong-dan-noi-nam-2026-144736.jpg",
+          "summary": "Kỳ thứ 4 của Diễn đàn giữa Chủ tịch Hội Nông dân Việt Nam và Bộ trưởng Bộ Nông nghiệp và Môi trường. Hàng nghìn câu hỏi, đề xuất của nông dân, hợp tác xã, doanh nghiệp đã gửi về Diễn đàn — từ liên kết, xúc tiến thương mại, khơi thông thị trường xuất khẩu đến chuyển đổi số và an toàn thực phẩm.",
+          "stats": [
+            {
+              "value": "$count",
+              "suffix": "",
+              "label": "Bài báo tư liệu"
+            }
+          ],
+          "link": "https://danviet.vn/dien-dan-chu-tich-hoi-nong-dan-viet-nam--bo-truong-bo-nong-nghiep-va-moi-truong-lang-nghe-nong-dan-noi-nam-2026-channel3093/",
+          "linkLabel": "Xem chuyên trang trên Dân Việt",
+          "source": {
+            "api": "https://danviet.vn/api/chu-de/3093"
+          }
+        },
+        {
+          "id": "3097",
+          "special": true,
+          "badge": "Lần đầu tổ chức",
+          "kicker": "Lần thứ I • Bộ Công an – Trung ương Hội Nông dân Việt Nam",
+          "title": "Diễn đàn Bộ Công an – Trung ương Hội Nông dân Việt Nam Lắng nghe nông dân nói 2026",
+          "date": "Sáng 11/10/2026",
+          "location": "Kỷ niệm Ngày thành lập Hội Nông dân Việt Nam",
+          "cover": "https://t.ex-cdn.com/danviet.vn/800w/files/channel/2026/08/27/dien-dan-bo-cong-an-trung-uong-hoi-nong-dan-viet-nam-lang-nghe-nong-dan-noi-2026-160220.webp",
+          "summary": "Lần đầu tiên Bộ Công an và Trung ương Hội Nông dân Việt Nam cùng tổ chức Diễn đàn lắng nghe nông dân nói, diễn ra sáng Chủ nhật 11/10/2026 nhân dịp kỷ niệm Ngày thành lập Hội Nông dân Việt Nam. Diễn đàn hướng tới an ninh, trật tự ở cơ sở sau sáp nhập xã, vai trò công an xã “gần dân, sát dân” và cảnh báo lừa đảo ở nông thôn.",
+          "stats": [
+            {
+              "value": "$count",
+              "suffix": "",
+              "label": "Bài báo tư liệu"
+            }
+          ],
+          "link": "https://danviet.vn/dien-dan-bo-cong-an-trung-uong-hoi-nong-dan-viet-nam-lang-nghe-nong-dan-noi-2026-channel3097/",
+          "linkLabel": "Xem chuyên trang trên Dân Việt",
+          "source": {
+            "api": "https://danviet.vn/api/chu-de/3097"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "label": "2025",
+      "programs": [
+        {
+          "id": "3002",
+          "kicker": "Diễn đàn Nông dân Quốc gia lần thứ X",
+          "title": "Chủ tịch Hội Nông dân Việt Nam và Bộ trưởng Bộ Công Thương – Lắng nghe nông dân nói năm 2025",
+          "date": "Ngày 1/10/2025",
+          "location": "Hà Nội",
+          "cover": "https://t.ex-cdn.com/danviet.vn/800w/files/channel/2025/10/25/chu-tich-hoi-nong-dan-viet-nam-va-bo-truong-bo-cong-thuong--lang-nghe-nong-dan-noi-nam-2025-104655.jpg",
+          "summary": "Trung ương Hội Nông dân Việt Nam phối hợp với Bộ Công Thương tổ chức Diễn đàn Nông dân Quốc gia lần thứ X với chủ đề “Kết nối thị trường – Xây dựng thương hiệu – Thúc đẩy tiêu thụ nông sản, góp phần tăng trưởng kinh tế đất nước 2 con số”, trước thềm chuỗi chương trình Tự hào Nông dân Việt Nam 2025.",
+          "stats": [
+            {
+              "value": "$count",
+              "suffix": "",
+              "label": "Bài báo tư liệu"
+            }
+          ],
+          "link": "https://danviet.vn/chu-tich-hoi-nong-dan-viet-nam-va-bo-truong-bo-cong-thuong--lang-nghe-nong-dan-noi-nam-2025-channel3002/",
+          "linkLabel": "Xem chuyên trang trên Dân Việt",
+          "source": {
+            "api": "https://danviet.vn/api/chu-de/3002"
+          }
+        },
+        {
+          "id": "3016",
+          "kicker": "T.Ư Hội Nông dân Việt Nam – Bộ Nông nghiệp và Môi trường",
+          "title": "Chủ tịch Hội NDVN và Bộ trưởng Bộ NNMT lắng nghe nông dân nói",
+          "date": "Ngày 2/11/2025",
+          "location": "Trung tâm Hội nghị 37 Hùng Vương, Hà Nội",
+          "cover": "https://t.ex-cdn.com/danviet.vn/800w/files/channel/2025/10/14/chu-tich-hoi-ndvn-va-bo-truong-bo-nnmt-lang-nghe-nong-dan-noi-091708.jpg",
+          "summary": "Diễn đàn với chủ đề “Đồng hành cùng nông dân bước vào kỷ nguyên mới” quy tụ khoảng 300 đại biểu. Hàng trăm câu hỏi của nông dân, hợp tác xã, doanh nghiệp, nhà khoa học tập trung vào 4 nhóm “điểm nghẽn” — từ đất đai, công nghệ đến nhân lực — và được lãnh đạo Bộ, cục, vụ trực tiếp giải đáp.",
+          "stats": [
+            {
+              "value": "$count",
+              "suffix": "",
+              "label": "Bài báo tư liệu"
+            },
+            {
+              "value": 300,
+              "suffix": "",
+              "label": "Đại biểu dự Diễn đàn"
+            },
+            {
+              "value": 4,
+              "suffix": "",
+              "label": "Nhóm “điểm nghẽn” được giải đáp"
+            }
+          ],
+          "link": "https://danviet.vn/chu-tich-hoi-ndvn-va-bo-truong-bo-nnmt-lang-nghe-nong-dan-noi-channel3016/",
+          "linkLabel": "Xem chuyên trang trên Dân Việt",
+          "source": {
+            "api": "https://danviet.vn/api/chu-de/3016"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "label": "2024",
+      "programs": [
+        {
+          "id": "2901",
+          "kicker": "Chuỗi chương trình Tự hào Nông dân Việt Nam 2024",
+          "title": "Diễn đàn Nông dân quốc gia lần thứ IX – 2024",
+          "date": "Sáng 14/10/2024",
+          "location": "Hà Nội",
+          "cover": "https://danviet.ex-cdn.com/files/f1/296231569849192448/2024/10/10/1-1728438222955913790348-17285273814141258792892.jpg",
+          "summary": "Trung ương Hội Nông dân Việt Nam phối hợp Bộ Nông nghiệp và Phát triển nông thôn tổ chức Diễn đàn Nông dân Quốc gia lần thứ IX với chủ đề “Chủ tịch Hội Nông dân Việt Nam – Bộ trưởng Bộ NN&PTNT lắng nghe nông dân nói”. Nhiều kiến nghị của nông dân xuất sắc, hợp tác xã được hai đồng chủ trì trả lời trực tiếp.",
+          "stats": [
+            {
+              "value": "$count",
+              "suffix": "",
+              "label": "Bài báo tư liệu"
+            }
+          ],
+          "link": "https://danviet.vn/dien-dan-nong-dan-quoc-gia-lan-thu-ix-2024-channel2901/",
+          "linkLabel": "Xem chuyên trang trên Dân Việt",
+          "source": {
+            "api": "https://danviet.vn/api/chu-de/2901"
+          }
+        },
+        {
+          "id": "2911",
+          "kicker": "T.Ư Hội Nông dân Việt Nam – Bộ Tài nguyên và Môi trường",
+          "title": "Chủ tịch Hội NDVN – Bộ trưởng TNMT lắng nghe nông dân nói",
+          "date": "Sáng 24/11/2024",
+          "location": "Trung tâm Hội nghị 37 Hùng Vương, Hà Nội",
+          "cover": "https://danviet.ex-cdn.com/files/f1/296231569849192448/2024/11/20/800-x-500-px-dv-17320996417751324704712.jpg",
+          "summary": "Diễn đàn với chủ đề “Khơi thông nguồn lực đất đai, hướng tới mục tiêu NetZero, bảo vệ môi trường nông thôn”. Nhiều kiến nghị về Luật Đất đai 2024 của nông dân, hợp tác xã, chuyên gia, nhà khoa học đã được giải đáp, tháo gỡ tại chỗ.",
+          "stats": [
+            {
+              "value": "$count",
+              "suffix": "",
+              "label": "Bài báo tư liệu"
+            }
+          ],
+          "link": "https://danviet.vn/chu-tich-hoi-ndvn-bo-truong-tnmt-lang-nghe-nong-dan-noi-channel2911/",
+          "linkLabel": "Xem chuyên trang trên Dân Việt",
+          "source": {
+            "api": "https://danviet.vn/api/chu-de/2911"
+          }
+        }
+      ]
+    }
+  ]
+}

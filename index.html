@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Ảnh bài viết lấy trực tiếp từ CDN Dân Việt: không gửi referrer để tránh bị chặn hotlink -->
+        <meta name="referrer" content="no-referrer" />
+        <title>Diễn đàn Lắng nghe nông dân nói (2024 – 2026) | Dân Việt</title>
+        <meta name="description" content="Tổng hợp 6 Diễn đàn Lắng nghe nông dân nói giữa Trung ương Hội Nông dân Việt Nam và lãnh đạo các Bộ, ngành giai đoạn 2024 – 2026, cùng hơn 180 bài báo tư liệu trên Báo Điện tử Dân Việt." />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+        <!-- ?v=...: đổi mỗi lần sửa CSS/JS để trình duyệt tải bản mới thay vì dùng cache -->
+        <link rel="stylesheet" href="./css/style.css?v=20261014-3" />
+        <script>
+            // Bật màn kéo rèm trước khi trang vẽ ra (1 lần/phiên, bỏ qua nếu giảm chuyển động)
+            try {
+                if (!sessionStorage.getItem("intro-seen") && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                    document.documentElement.classList.add("intro", "intro-lock");
+                }
+            } catch (e) {}
+        </script>
+    </head>
+    <body>
+        <div class="curtain" aria-hidden="true">
+            <div class="curtain__panel curtain__panel--left"></div>
+            <div class="curtain__panel curtain__panel--right"></div>
+            <div class="curtain__brand">
+                <span class="curtain__line"></span>
+                <span class="curtain__sub">Diễn đàn</span>
+                <span class="curtain__title">Lắng nghe nông dân nói</span>
+                <span class="curtain__line"></span>
+            </div>
+        </div>
+        <div class="scroll-progress" aria-hidden="true"></div>
+        <header class="header">
+            <div class="w-1280 header__inner">
+                <a class="header__logo" href="#top">
+                    <!-- TODO: thay bằng logo thật -->
+                    <span class="fs-18">Dân Việt <span class="text-muted fw-400">| Lắng nghe nông dân nói</span></span>
+                </a>
+                <nav class="header__nav">
+                    <a href="#top" class="active">Tổng quan</a>
+                    <a href="#events">Diễn đàn qua các năm</a>
+                    <a href="#event-2026">★ 2026</a>
+                    <a href="#contact">Liên hệ</a>
+                </nav>
+                <button class="header__toggle" type="button" aria-label="Mở menu">☰</button>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero" id="top">
+                <div class="hero__glow" aria-hidden="true"></div>
+                <div class="beam beam--left" aria-hidden="true"></div>
+                <div class="beam beam--right" aria-hidden="true"></div>
+                <svg class="medallion" viewBox="0 0 400 400" aria-hidden="true">
+                    <g class="medallion__ring medallion__ring--a">
+                        <circle cx="200" cy="200" r="190" stroke-dasharray="2 10" />
+                        <circle cx="200" cy="200" r="176" />
+                    </g>
+                    <g class="medallion__ring medallion__ring--b">
+                        <circle cx="200" cy="200" r="150" stroke-dasharray="40 8 4 8" />
+                        <circle cx="200" cy="200" r="120" stroke-dasharray="1 6" stroke-width="6" />
+                    </g>
+                    <g class="medallion__ring medallion__ring--c">
+                        <circle cx="200" cy="200" r="95" />
+                        <path d="M200 105 L208 192 L295 200 L208 208 L200 295 L192 208 L105 200 L192 192 Z" />
+                    </g>
+                </svg>
+                <canvas class="sparkles" aria-hidden="true"></canvas>
+                <div class="stage-lights" aria-hidden="true">
+                    <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <div class="w-1140 hero__inner">
+                    <span class="hero__eyebrow">Lưu trữ truyền thông</span>
+                    <h1 class="hero__title">Diễn đàn<br>Lắng nghe nông&nbsp;dân nói</h1>
+                    <p class="hero__desc">Tổng hợp các Diễn đàn đối thoại giữa Trung ương Hội Nông dân Việt Nam và lãnh đạo các Bộ, ngành giai đoạn 2024 – 2026: nơi nông dân, hợp tác xã, doanh nghiệp trực tiếp nêu kiến nghị và được giải đáp tại chỗ. Báo Nông thôn Ngày nay/Điện tử Dân Việt được giao phối hợp tổ chức.</p>
+                    <div class="hero__actions">
+                        <a class="btn" href="#events">Khám phá các Diễn đàn</a>
+                        <a class="btn-outline" href="#event-2026">★ 2026</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="stats-band" id="overview">
+                <div class="w-1140">
+                    <div class="stats-band__grid reveal reveal--zoom">
+                        <div class="stat">
+                            <div class="stat__value" data-count="3">0</div>
+                            <div class="stat__label">Năm tổ chức (2024 – 2026)</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat__value" data-count="6">0</div>
+                            <div class="stat__label">Diễn đàn Lắng nghe nông dân nói</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat__value" data-count="180" data-suffix="+">0</div>
+                            <div class="stat__label">Bài báo tư liệu</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat__value" data-count="5">0</div>
+                            <div class="stat__label">Bộ, ngành đồng hành cùng nông dân</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="events" id="events">
+                <div class="w-1280">
+                    <div class="section-head reveal">
+                        <h2 class="heading-primary">Dấu ấn các Diễn đàn qua từng&nbsp;năm</h2>
+                        <div class="heading-ornament" aria-hidden="true">✦</div>
+                        <p class="heading-sub">Mỗi năm hai Diễn đàn, mỗi Diễn đàn một Bộ, ngành ngồi lại lắng nghe nông dân — được ghi lại bằng những bài báo tư liệu trên Báo Điện tử Dân Việt.</p>
+                    </div>
+
+                    <nav class="year-nav" id="year-nav"></nav>
+                    <div id="events-list"></div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer" id="contact">
+            <div class="w-1140">
+                <div class="footer__copy">© Báo Điện tử Dân Việt. All rights reserved.</div>
+            </div>
+        </footer>
+
+        <button class="back-to-top" type="button" aria-label="Lên đầu trang">↑</button>
+
+        <script src="./js/data.js"></script>
+        <script src="./js/effects.js?v=20261014-2"></script>
+        <script src="./js/main.js?v=20261014-2"></script>
+    </body>
+</html>
