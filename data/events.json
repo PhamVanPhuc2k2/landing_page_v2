@@ -25,7 +25,7 @@
               "label": "Bài báo tư liệu"
             },
             {
-              "value": 100,
+              "value": 300,
               "suffix": "+",
               "label": "Đại biểu dự Diễn đàn"
             }
@@ -53,7 +53,7 @@
               "label": "Bài báo tư liệu"
             },
             {
-              "value": 100,
+              "value": 300,
               "suffix": "+",
               "label": "Đại biểu dự Diễn đàn"
             }
@@ -85,7 +85,7 @@
               "label": "Bài báo tư liệu"
             },
             {
-              "value": 100,
+              "value": 300,
               "suffix": "+",
               "label": "Đại biểu dự Diễn đàn"
             }
@@ -112,7 +112,7 @@
             },
             {
               "value": 300,
-              "suffix": "",
+              "suffix": "+",
               "label": "Đại biểu dự Diễn đàn"
             }
           ],
@@ -144,7 +144,7 @@
             },
             {
               "value": 300,
-              "suffix": "",
+              "suffix": "+",
               "label": "Đại biểu dự Diễn đàn"
             }
           ],
@@ -170,7 +170,7 @@
             },
             {
               "value": 300,
-              "suffix": "",
+              "suffix": "+",
               "label": "Đại biểu dự Diễn đàn"
             }
           ],

@@ -31,7 +31,7 @@ window.EVENTS = [
             "label": "Bài báo tư liệu"
           },
           {
-            "value": 100,
+            "value": 300,
             "suffix": "+",
             "label": "Đại biểu dự Diễn đàn"
           }
@@ -176,7 +176,7 @@ window.EVENTS = [
             "label": "Bài báo tư liệu"
           },
           {
-            "value": 100,
+            "value": 300,
             "suffix": "+",
             "label": "Đại biểu dự Diễn đàn"
           }
@@ -579,7 +579,7 @@ window.EVENTS = [
             "label": "Bài báo tư liệu"
           },
           {
-            "value": 100,
+            "value": 300,
             "suffix": "+",
             "label": "Đại biểu dự Diễn đàn"
           }
@@ -886,7 +886,7 @@ window.EVENTS = [
           },
           {
             "value": 300,
-            "suffix": "",
+            "suffix": "+",
             "label": "Đại biểu dự Diễn đàn"
           }
         ],
@@ -1405,7 +1405,7 @@ window.EVENTS = [
           },
           {
             "value": 300,
-            "suffix": "",
+            "suffix": "+",
             "label": "Đại biểu dự Diễn đàn"
           }
         ],
@@ -1558,7 +1558,7 @@ window.EVENTS = [
           },
           {
             "value": 300,
-            "suffix": "",
+            "suffix": "+",
             "label": "Đại biểu dự Diễn đàn"
           }
         ],
