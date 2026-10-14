@@ -3698,7 +3698,14 @@ html.intro .curtain {
     padding: 110px 0 140px;
   }
   .hero__title {
-    font-size: 1.75rem;
+    white-space: pre;
+    font-size: clamp(1rem, 6vw, 1.75rem);
+  }
+  .header__brand {
+    font-size: clamp(0.6875rem, 3.2vw, 1rem);
+  }
+  .header__sub {
+    white-space: nowrap;
   }
   .hero__eyebrow {
     font-size: 0.75rem;
