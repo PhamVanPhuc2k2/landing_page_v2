@@ -11,32 +11,6 @@
       "special": true,
       "programs": [
         {
-          "id": "3093",
-          "kicker": "Lần thứ 3 • T.Ư Hội Nông dân Việt Nam – Bộ Nông nghiệp và Môi trường",
-          "title": "Diễn đàn Chủ tịch Hội Nông dân Việt Nam – Bộ trưởng Bộ Nông nghiệp và Môi trường Lắng nghe nông dân nói năm 2026",
-          "date": "",
-          "location": "",
-          "cover": "https://t.ex-cdn.com/danviet.vn/800w/files/channel/2026/07/30/dien-dan-chu-tich-hoi-nong-dan-viet-nam--bo-truong-bo-nong-nghiep-va-moi-truong-lang-nghe-nong-dan-noi-nam-2026-144736.jpg",
-          "summary": "Kỳ thứ 3 của Diễn đàn giữa Chủ tịch Hội Nông dân Việt Nam và Bộ trưởng Bộ Nông nghiệp và Môi trường. Hàng nghìn câu hỏi, đề xuất của nông dân, hợp tác xã, doanh nghiệp đã gửi về Diễn đàn — từ liên kết, xúc tiến thương mại, khơi thông thị trường xuất khẩu đến chuyển đổi số và an toàn thực phẩm.",
-          "stats": [
-            {
-              "value": 100,
-              "suffix": "+",
-              "label": "Bài báo tư liệu"
-            },
-            {
-              "value": 300,
-              "suffix": "+",
-              "label": "Đại biểu dự Diễn đàn"
-            }
-          ],
-          "link": "https://danviet.vn/dien-dan-chu-tich-hoi-nong-dan-viet-nam--bo-truong-bo-nong-nghiep-va-moi-truong-lang-nghe-nong-dan-noi-nam-2026-channel3093/",
-          "linkLabel": "Xem thêm trên Dân Việt",
-          "source": {
-            "api": "https://danviet.vn/api/chu-de/3093"
-          }
-        },
-        {
           "id": "3097",
           "special": true,
           "badge": "Lần đầu tổ chức",
@@ -62,6 +36,32 @@
           "linkLabel": "Xem thêm trên Dân Việt",
           "source": {
             "api": "https://danviet.vn/api/chu-de/3097"
+          }
+        },
+        {
+          "id": "3093",
+          "kicker": "Lần thứ 3 • T.Ư Hội Nông dân Việt Nam – Bộ Nông nghiệp và Môi trường",
+          "title": "Diễn đàn Chủ tịch Hội Nông dân Việt Nam – Bộ trưởng Bộ Nông nghiệp và Môi trường Lắng nghe nông dân nói năm 2026",
+          "date": "",
+          "location": "",
+          "cover": "https://t.ex-cdn.com/danviet.vn/800w/files/channel/2026/07/30/dien-dan-chu-tich-hoi-nong-dan-viet-nam--bo-truong-bo-nong-nghiep-va-moi-truong-lang-nghe-nong-dan-noi-nam-2026-144736.jpg",
+          "summary": "Kỳ thứ 3 của Diễn đàn giữa Chủ tịch Hội Nông dân Việt Nam và Bộ trưởng Bộ Nông nghiệp và Môi trường. Hàng nghìn câu hỏi, đề xuất của nông dân, hợp tác xã, doanh nghiệp đã gửi về Diễn đàn — từ liên kết, xúc tiến thương mại, khơi thông thị trường xuất khẩu đến chuyển đổi số và an toàn thực phẩm.",
+          "stats": [
+            {
+              "value": 100,
+              "suffix": "+",
+              "label": "Bài báo tư liệu"
+            },
+            {
+              "value": 300,
+              "suffix": "+",
+              "label": "Đại biểu dự Diễn đàn"
+            }
+          ],
+          "link": "https://danviet.vn/dien-dan-chu-tich-hoi-nong-dan-viet-nam--bo-truong-bo-nong-nghiep-va-moi-truong-lang-nghe-nong-dan-noi-nam-2026-channel3093/",
+          "linkLabel": "Xem thêm trên Dân Việt",
+          "source": {
+            "api": "https://danviet.vn/api/chu-de/3093"
           }
         }
       ]

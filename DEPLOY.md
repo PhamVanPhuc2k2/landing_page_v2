@@ -6,8 +6,8 @@ Trang gồm 3 năm (2024 – 2026), **mỗi năm 2 Diễn đàn**; mỗi Diễn 
 
 | Năm | Diễn đàn | Mã chủ đề |
 |---|---|---|
-| 2026 | Chủ tịch Hội NDVN – Bộ trưởng Bộ NN&MT | 3093 |
 | 2026 | Bộ Công an – T.Ư Hội NDVN (lần thứ I) | 3097 |
+| 2026 | Chủ tịch Hội NDVN – Bộ trưởng Bộ NN&MT | 3093 |
 | 2025 | Chủ tịch Hội NDVN – Bộ trưởng Bộ Công Thương | 3002 |
 | 2025 | Chủ tịch Hội NDVN – Bộ trưởng Bộ NNMT | 3016 |
 | 2024 | Diễn đàn Nông dân quốc gia lần thứ IX | 2901 |
